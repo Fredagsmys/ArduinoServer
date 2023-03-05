@@ -4,8 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -54,7 +52,7 @@ public class DepthMeterServlet extends HttpServlet{
 		SQLConnection connection = ArduinoServer.getConnect();
 
 		try {
-			dataList = connection.get(8);
+			dataList = connection.get(7);
 			
 			message += "Antal m�tpunkter: " + dataList.size() + "\n" + "------------------------------------------------------------------------\n"; 
 			
