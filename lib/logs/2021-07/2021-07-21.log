@@ -1,0 +1,42 @@
+2021-07-21 12:53:40.660 main E/wse: Exception in thread "main" 
+2021-07-21 12:53:40.663 main E/wse: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2021-07-21 12:53:40.663 main E/wse: 	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+2021-07-21 12:53:40.664 main E/wse: 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+2021-07-21 12:53:40.664 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+2021-07-21 12:53:40.664 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+2021-07-21 12:53:40.665 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+2021-07-21 12:53:40.665 main E/wse: 	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197)
+2021-07-21 12:53:40.666 main E/wse: 	at java.sql.DriverManager.getConnection(Unknown Source)
+2021-07-21 12:53:40.666 main E/wse: 	at java.sql.DriverManager.getConnection(Unknown Source)
+2021-07-21 12:53:40.666 main E/wse: 	at db.SQLConnection.<init>(SQLConnection.java:20)
+2021-07-21 12:53:40.667 main E/wse: 	at server.ArduinoServer.main(ArduinoServer.java:23)
+2021-07-21 12:53:40.667 main E/wse: Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2021-07-21 12:53:40.668 main E/wse: 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+2021-07-21 12:53:40.668 main E/wse: 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+2021-07-21 12:53:40.669 main E/wse: 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+2021-07-21 12:53:40.669 main E/wse: 	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+2021-07-21 12:53:40.669 main E/wse: 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+2021-07-21 12:53:40.670 main E/wse: 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+2021-07-21 12:53:40.670 main E/wse: 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+2021-07-21 12:53:40.670 main E/wse: 	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+2021-07-21 12:53:40.671 main E/wse: 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91)
+2021-07-21 12:53:40.671 main E/wse: 	at com.mysql.cj.NativeSession.connect(NativeSession.java:144)
+2021-07-21 12:53:40.671 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956)
+2021-07-21 12:53:40.672 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826)
+2021-07-21 12:53:40.672 main E/wse: 	... 7 more
+2021-07-21 12:53:40.673 main E/wse: Caused by: java.net.ConnectException: Connection refused: connect
+2021-07-21 12:53:40.673 main E/wse: 	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+2021-07-21 12:53:40.673 main E/wse: 	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+2021-07-21 12:53:40.674 main E/wse: 	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+2021-07-21 12:53:40.674 main E/wse: 	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+2021-07-21 12:53:40.674 main E/wse: 	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+2021-07-21 12:53:40.675 main E/wse: 	at java.net.PlainSocketImpl.connect(Unknown Source)
+2021-07-21 12:53:40.675 main E/wse: 	at java.net.SocksSocketImpl.connect(Unknown Source)
+2021-07-21 12:53:40.676 main E/wse: 	at java.net.Socket.connect(Unknown Source)
+2021-07-21 12:53:40.676 main E/wse: 	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
+2021-07-21 12:53:40.676 main E/wse: 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
+2021-07-21 12:53:40.677 main E/wse: 	... 10 more

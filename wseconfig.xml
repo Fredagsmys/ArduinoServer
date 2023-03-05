@@ -1,0 +1,30 @@
+<!-- Configuration file for Web Service Engine IDE Plugin -->
+<wse>
+	
+	<!-- Specify the wsdl source folder -->
+	<source>G:\My Drive\Android\Java_Servers\ArduinoServer\ArduinoServerScheme</source>
+	
+	<!-- Specify the target destination root for generated files -->
+	<target>/src</target>
+	
+	<!-- Language to generate for, see https://wse.app/plugin for supported languages  -->
+	<language>java</language>
+	
+	<!-- Java Package, only used when generating for Java -->
+	<package>wse.generated</package>
+	
+	<!-- Generate Server Stubs? -->
+	<!-- Server stubs will never override existing ones -->
+	<serverStubs>true</serverStubs>
+	
+	<!-- Namespace translations, schema types with this namespace will receive the specified prefix -->
+	<translate namespace="https://wse.app/ns/" prefix="wse" />
+	<translate namespace="https://wse.app/ns/wse" prefix="wse" />
+	
+	<!-- Additional options when generating -->
+	<emptyStrings>false</emptyStrings>
+	<allStrings>false</allStrings>
+	
+	<!-- EXPERIMENTAL -->
+	<extra name="ignoreReplace">true</extra>
+</wse>

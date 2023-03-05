@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="wse:GetSensorDataBetween"
+	targetNamespace="wse:GetSensorDataBetween"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="1.0">
+
+	<complexType name="GetSensorDataBetweenRequest">
+		<sequence>
+			<element name="sensorID" type="int"/>
+			<element name="startDate" type="string"/>
+			<element name="stopDate" type="string"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="Data2">
+		<sequence>
+			<element name="value" type="double"/>
+			<element name="sensorType" type="int"/>
+			<element name="sensorID" type="int"/>
+			<element name="timeStamp" type="string"/>
+		</sequence>
+	</complexType>
+			
+	<complexType name="GetSensorDataBetweenResponse">
+		<sequence>
+			<element name="data" type="tns:Data2" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+</xs:schema>

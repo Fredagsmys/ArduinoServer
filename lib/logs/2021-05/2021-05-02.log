@@ -1,0 +1,4 @@
+2021-05-02 12:40:58.472 main I/wse: Servlet "ArduinoSensorDataServlet" bound to "/SendData"
+2021-05-02 12:40:58.492 main I/wse: Http listener started on 0.0.0.0/0.0.0.0:1300
+2021-05-02 12:55:07.644 main I/wse: Servlet "ArduinoSensorDataServlet" bound to "/SendData"
+2021-05-02 12:55:07.647 main E/wse: Port 1300 is already in use

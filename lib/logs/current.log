@@ -1,0 +1,41 @@
+2022-07-12 20:53:10.115 main E/wse: Exception in thread "main" 
+2022-07-12 20:53:10.120 main E/wse: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-07-12 20:53:10.122 main E/wse: 	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+2022-07-12 20:53:10.122 main E/wse: 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+2022-07-12 20:53:10.123 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+2022-07-12 20:53:10.124 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+2022-07-12 20:53:10.125 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+2022-07-12 20:53:10.125 main E/wse: 	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197)
+2022-07-12 20:53:10.126 main E/wse: 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+2022-07-12 20:53:10.127 main E/wse: 	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252)
+2022-07-12 20:53:10.127 main E/wse: 	at db.SQLConnection.<init>(SQLConnection.java:20)
+2022-07-12 20:53:10.128 main E/wse: 	at server.ArduinoServer.main(ArduinoServer.java:23)
+2022-07-12 20:53:10.129 main E/wse: Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-07-12 20:53:10.130 main E/wse: 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+2022-07-12 20:53:10.130 main E/wse: 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+2022-07-12 20:53:10.131 main E/wse: 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+2022-07-12 20:53:10.132 main E/wse: 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+2022-07-12 20:53:10.132 main E/wse: 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+2022-07-12 20:53:10.133 main E/wse: 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+2022-07-12 20:53:10.133 main E/wse: 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+2022-07-12 20:53:10.134 main E/wse: 	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+2022-07-12 20:53:10.134 main E/wse: 	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+2022-07-12 20:53:10.135 main E/wse: 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91)
+2022-07-12 20:53:10.136 main E/wse: 	at com.mysql.cj.NativeSession.connect(NativeSession.java:144)
+2022-07-12 20:53:10.136 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956)
+2022-07-12 20:53:10.137 main E/wse: 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826)
+2022-07-12 20:53:10.137 main E/wse: 	... 7 more
+2022-07-12 20:53:10.138 main E/wse: Caused by: java.net.ConnectException: Connection refused: connect
+2022-07-12 20:53:10.139 main E/wse: 	at java.base/sun.nio.ch.Net.connect0(Native Method)
+2022-07-12 20:53:10.139 main E/wse: 	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+2022-07-12 20:53:10.140 main E/wse: 	at java.base/sun.nio.ch.Net.connect(Net.java:568)
+2022-07-12 20:53:10.141 main E/wse: 	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+2022-07-12 20:53:10.142 main E/wse: 	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+2022-07-12 20:53:10.143 main E/wse: 	at java.base/java.net.Socket.connect(Socket.java:633)
+2022-07-12 20:53:10.143 main E/wse: 	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
+2022-07-12 20:53:10.144 main E/wse: 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
+2022-07-12 20:53:10.145 main E/wse: 	... 10 more

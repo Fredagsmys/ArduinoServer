@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="wse:GetSensorData"
+	targetNamespace="wse:GetSensorData"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="1.0">
+
+	<complexType name="GetSensorDataRequestType">
+		<sequence>
+			<element name="sensorID" type="int"/>
+			<element name="date" type ="string"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="Data">
+		<sequence>
+			<element name="value" type="double"/>
+			<element name="sensorType" type="int"/>
+			<element name="sensorID" type="int"/>
+			<element name="timeStamp" type="string"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="GetSensorDataResponseType">
+		<sequence>
+			<element name="data" type="tns:Data" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+</xs:schema>
