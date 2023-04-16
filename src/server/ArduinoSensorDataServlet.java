@@ -22,7 +22,8 @@ public class ArduinoSensorDataServlet extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		SQLConnection connection = ArduinoServer.getConnect();
+		SQLConnection connection;
+
 		InputStream inputStream = request.getContent();
 		byte[] byteArray = StreamUtils.readAll(inputStream);
 
@@ -34,7 +35,11 @@ public class ArduinoSensorDataServlet extends HttpServlet {
 
 
 		try {
+			connection = ArduinoServer.getConnect();
+			System.out.println(connection);
 			connection.insert(sensorData, sensorType, sensorID);
+			connection.close();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,10 +55,12 @@ public class ArduinoSensorDataServlet extends HttpServlet {
 		List<Data> dataList;
 		String message = "";
 		
-		SQLConnection connection = ArduinoServer.getConnect();
+		
 
 		try {
+			SQLConnection connection = ArduinoServer.getConnect();
 			dataList = connection.get(1);
+			connection.close();
 			message += "size: " + dataList.size() + "\t"; // not tested
 			for (Data data : dataList) {
 				message += data.value + " ";
@@ -62,6 +69,8 @@ public class ArduinoSensorDataServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
+		
 
 		byte[] byteMessage = message.getBytes();
 		response.setContentLength(byteMessage.length);

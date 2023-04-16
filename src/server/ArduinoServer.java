@@ -14,13 +14,13 @@ public class ArduinoServer extends WSEServer {
 	static SQLConnection sqlConnection;
 	static Boolean waterStatus = false;
 
-	public static void main(String[] args) throws SecurityException, FileNotFoundException, SQLException {
+	public static void main(String[] args) throws SecurityException, FileNotFoundException {
 		WSE.setLogLevel(Level.FINEST);
 		WSE.initDefaultStandaloneLogging();
 		WSE.initFileLogging();
 		System.setErr(new LogPrintStream(WSE.getLogger(), Level.SEVERE));
 		System.setOut(new LogPrintStream(WSE.getLogger(), Level.INFO));
-		sqlConnection = new SQLConnection();
+		
 		new ArduinoServer().start();
 		
 
@@ -39,7 +39,8 @@ public class ArduinoServer extends WSEServer {
 		addHttp(1303);
 	}
 
-	public static SQLConnection getConnect() {
+	public static SQLConnection getConnect() throws SQLException {
+		sqlConnection = new SQLConnection();
 		return sqlConnection;
 	}
 	

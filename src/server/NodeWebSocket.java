@@ -36,8 +36,7 @@ static NodeWebSocket socket;
 	@Override
 	public void onMessage(InputStream inputStream) {
 
-		SQLConnection connection = ArduinoServer.getConnect();
-
+		
 		byte[] byteArray;
 		try {
 			byteArray = StreamUtils.readAll(inputStream);
@@ -45,15 +44,17 @@ static NodeWebSocket socket;
 			e1.printStackTrace();
 			return;
 		}
-
+		
 		Scanner scanner = new Scanner(new ByteArrayInputStream(byteArray));
 		scanner.useLocale(Locale.US);
 		float sensorData = scanner.nextFloat();
 		int sensorType = scanner.nextInt();
 		int sensorID = scanner.nextInt();
-
+		
 		try {
+			SQLConnection connection = ArduinoServer.getConnect();
 			connection.insert(sensorData, sensorType, sensorID);
+			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

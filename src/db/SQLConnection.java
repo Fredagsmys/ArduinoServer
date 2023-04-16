@@ -19,7 +19,10 @@ public class SQLConnection {
 		String URI = "jdbc:mysql://localhost:3306/sensorData?user=root&password=Baggenq321&serverTimezone=GMT%2b2";
 		connection = DriverManager.getConnection(URI);
 		statement = connection.createStatement();
+	}
 
+	public void close() throws SQLException {
+		connection.close();
 	}
 
 	public int insert(double value, int sensorType, int sensorID) throws SQLException {
@@ -27,7 +30,9 @@ public class SQLConnection {
 		String insertString = String.format(Locale.US,
 				"INSERT INTO data (Value, SensorType, SensorID) VALUES (%.1f, %d, %d);",
 				value, sensorType, sensorID);
-		return statement.executeUpdate(insertString);
+		int status = statement.executeUpdate(insertString);
+		statement.close();
+		return status;
 	}
 
 	public List<Data> get(int sensorID) throws SQLException {

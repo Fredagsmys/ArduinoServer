@@ -22,18 +22,19 @@ public class DepthMeterServlet extends HttpServlet{
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		SQLConnection connection = ArduinoServer.getConnect();
 		InputStream inputStream = request.getContent();
 		byte[] byteArray = StreamUtils.readAll(inputStream);
-
+		
 		Scanner scanner = new Scanner(new ByteArrayInputStream(byteArray));
 		scanner.useLocale(Locale.US);
 		float sensorData = scanner.nextFloat();
 		int sensorType = scanner.nextInt();
 		int sensorID = scanner.nextInt();
-
+		
 		try {
+			SQLConnection connection = ArduinoServer.getConnect();
 			connection.insert(sensorData, sensorType, sensorID);
+			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -49,10 +50,12 @@ public class DepthMeterServlet extends HttpServlet{
 
 		List<Data> dataList;
 		String message = "Vattenniv�n i Karsj� \n";
-		SQLConnection connection = ArduinoServer.getConnect();
+		
 
 		try {
+			SQLConnection connection = ArduinoServer.getConnect();
 			dataList = connection.get(7);
+			connection.close();
 			
 			message += "Antal m�tpunkter: " + dataList.size() + "\n" + "------------------------------------------------------------------------\n"; 
 			
